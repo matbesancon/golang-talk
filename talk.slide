@@ -1,4 +1,4 @@
-Weird use cases for Golang
+Go dans une équipe multi-projet, multi-plateforme
 18:30 06 Jul 2017
 Tags: data, gomobile, backend
 
@@ -7,144 +7,141 @@ Data Scientist & Backend Developer, Equisense
 @MathieuBesancon
 https://medium.com/@MathieuBesancon
 
-* Outline
+* De quoi on parle?
 
-1. Introduction
-2. Go for multi-project, multi-platform development
-3. Go for data science
+1. Introduction & contexte
+2. Go à taille réelle en multi-plateforme
+3. Go en data science
 
-* Ego slide
+* Slide
 
-- Process & industrial engineering, scientific computation background
+- Background en procédés, systèmes industriels et calcul scientifique
 
 - [Matlab, Scilab] [C/C++] [Python, Numpy, Pandas] [Scala] [Go]
 
-- Interest in functional programming, scientific-enabled languages
+- Intérêt pour la programmation fonctionnelle et scientifique
 
-- But I like to explore and work on my own without relying (too much) on magic
+- Préférence pour l'exploration poussée sans trop m'appuyer sur des outils automagiques
 
-* Equisense’s context
+* Contexte d'Equisense
 
-Offering smart devices and services for horse riders.
+Développe des objets connectés et services pour les cavaliers.
 
-Currently focusing on the sport aspects (jumping, ...)
+Utilisation de données accélérométriques pour analyser et faire un retour sur les séances (nombre de sauts, temps à chaque allure,..)
 
-*Role*: signal processing, data analysis, backend development
+*Role*: traitement de signal, analyse de données et modélisation, développement backend
 
-Technical culture:
+Culture technique:
 
-- Autonomy but strong interdependence
-- Everyone responsible for their own projects
-- Influence from hardware/firmware, data and design
+- Autonomie mais forte interdépendance
+- Chacun est responsable de ses projets
+- Influence de backgrounds hardware/firmware, data et design
 
-* Go for multi-project, multi-platform development
+* Go à taille réelle en multi-plateforme
 
-* Why Go for our team?
+* Pourquoi Go pour notre équipe ?
 
-Use of a Backend-As-a-Service beyond its capability
-==> Woops, we need to rewrite (at least) some things in-house
+Utilisation d'un Backend-As-A-Service au-delà de son scope et capacités
+==> Woops, énorme dette technique, besoin de développement d'une vraie plateforme
 
-Explored several options for the new platform
+Après exploration de plusieurs options, choix de Go pour quelques raisons clés
 
-Golang:
-- Emphasis on ease of read
-- Foreseeable refactoring
-- Small memory footprint
-- Designed for server-side applications
-- Enforcing good practices (limited scopes, consistent code)
+- Facilité de lecture par une majorité de développeurs
+- Empreinte mémoire faible
+- Refactoring facile, prédictible
+- Autoritaire sur les détails, flexible sur les vrais choix
+- Pensé comme un langage natif serveur (cloud-native)
 
-* Projected needs
+* Besoins anticipés
 
-Extension of features:
-- Computation of long-term trends
+Nouvelles fonctionnalités à développer:
+- Calcul de tendance à long-terme pour le cavalier
 - News feed
-- Social interactions
+- Interactions sociales
 
-Centralization of the core models and logic
-- Leveraging gomobile bindings
-- Usability for connected devices (but not bare metal)
+Centralisation des modèles et de la logique centraux
+- Utilisation des bindings gomobile
+- Utilisabilité pour objets connectés (sans être du métal nu)
 
-* Packages and services architecture
+* Architecture des packages et services
 .image img/architecture.png 450 _
 
-* Developing for server and client application
+* Développement d'applications serveur et client
 
-Library-driven development: split reused *logic* from *services*
+Library-driven development: séparation de la *logique* des *services*
 
-Examples:
-- `model` is used in every service written in Go
-- `aggregation` can be compiled for the back-end and both mobile platforms
+Exemples:
+- `model` est utilisé dans chaque service écrit en Go
+- `aggregation` peut être compilé à la fois pour le backend et les applications mobiles
 
-Use case: algorithms run online by default, but mobile apps should be able
-to run them when requested (no internet, ...)
+Cas d'usage: certains algorithmes tournent par défaut sur serveurs, mais
+les apps mobile doivent pouvoir les utiliser (cas hors connexion)
 
 .image img/pipeline.png _ 800
 
-* Go for data science
+* Go pour la data science
 
-* The good parts
+* Les parties cool
 
-First surprise: a low-level, system-oriented language with a very active
-data science community.
+Première surprise : un langage plutôt bas-niveau, orienté système avec une
+communauté data et techniques numériques très active
 
-`#data-science` channel on the Gophers Slack
+Channel `#data-science` sur le Slack Gophers
 
-`gonum` organization offers high-quality scientific packages
+L'organisation Github `gonum` maintient d'excellents packages scientifiques
 
-`gorgiona` for generic computation graph (think TensorFlow)
+`gorgiona` pour les graphes de calcul génériques (~ TensorFlow)
 
-pachyderm.io for containerized and versioned data science
+pachyderm.io pour la data science containerisée et versionnée
 
-Built-in advanced testing system helps predicting the outcome of a model
-under given conditions.
+Système de test intégré au tooling : propriétés prédictibles du modèle
+(bonne pratique dans une communauté data pas encore acculturée à la production)
 
-Testing is not yet enforced enough in the data science circle when moving to
-production.
+* Les parties 6@#8%ù**£
 
-* The 6@#8%ù**£ parts
+Exemple en Julia
 
-Example in Julia
-.image img/julia_example.png _ 300
+.image img/julia_example.png _ 550
 
-* Numeric type behavior:
+* Comportement des types numériques:
 
-What I wish we had:
+Ce que je voudrais voir:
 
   a := float64(0.5)
   b := float32(1.5)
   x := a + b
   // x is a float64
 
-  var y int
+  var y float32
   y = a + b // invalid operation: a + b (mismatched types float64 and float32)
 
-What we have:
+En réalité:
 
   a := float64(0.5)
   b := float32(1.5)
   x := a + b // invalid operation: a + b (mismatched types float64 and float32)
 
-* The fatal blow
+* La goutte d'eau
 
-- No generic `numeric` type
+- Pas de type `numeric` utilisable pour définir les fonctions
 
   func add(a, b numeric) {
     return a + b
   }
 
-- No interface can be defined on operators
+- Pas d'interface définissable sur les opérateurs
 
   type adder interface{
     +(float32) adder
   }
 
-* Mini-project: KNN for Quora duplicate questions detection
+* Mini-projet: KNN pour la détection de questions Quora dupliquées
 
 .image img/quora-duplicates.png _ 450
 
-Kaggle competition:
+Compétition Kaggle :
 .link https://www.kaggle.com/c/quora-question-pairs
 
-Goals:
-- heavy lifting on raw question data
-- implementation of a sparse version of the K-nearest neighbors
+Objectifs :
+- Pré-traitement des données et textes bruts des questions
+- Implémentation d'une version "sparse" de l'algorithme des K plus proches voisins
