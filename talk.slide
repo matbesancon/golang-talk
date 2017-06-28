@@ -96,13 +96,15 @@ les apps mobile doivent pouvoir les utiliser (cas hors connexion)
 Première surprise : un langage plutôt bas-niveau, orienté système avec une
 communauté data et techniques numériques très active
 
-Channel `#data-science` sur le Slack Gophers
+- channel `#data-science` sur le Slack Gophers
 
-L'organisation Github `gonum` maintient d'excellents packages scientifiques
+- l'organisation Github `gonum` maintient d'excellents packages scientifiques
 
-`gorgiona` pour les graphes de calcul génériques (~ TensorFlow)
+- `gorgiona` pour les graphes de calcul génériques (~ TensorFlow)
 
-pachyderm.io pour la data science containerisée et versionnée
+- pachyderm.io pour la data science containerisée et versionnée
+
+- gopherdata.io centralise la communauté data Golang (events, articles de blog, ressources)
 
 Système de test intégré au tooling : propriétés prédictibles du modèle
 (bonne pratique dans une communauté data pas encore acculturée à la production)
