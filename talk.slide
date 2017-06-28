@@ -1,4 +1,4 @@
-Go dans une équipe multi-projet, multi-plateforme
+Go dans une équipe multi-projet et multi-plateforme
 18:30 06 Jul 2017
 Tags: data, gomobile, backend
 
@@ -7,13 +7,15 @@ Data Scientist & Backend Developer, Equisense
 @MathieuBesancon
 https://medium.com/@MathieuBesancon
 
-* De quoi on parle?
+* for _, subj := range talk { subj.Describe() }
 
 1. Introduction & contexte
 2. Go à taille réelle en multi-plateforme
 3. Go en data science
 
-* Slide
+.image img/gopher_horse.png
+
+* me.Describe()
 
 - Background en procédés, systèmes industriels et calcul scientifique
 
