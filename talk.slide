@@ -25,13 +25,16 @@ https://medium.com/@MathieuBesancon
 
 - Préférence pour l'exploration poussée sans trop m'appuyer sur des outils automagiques
 
+.image img/gopherizeme.png _ 200
+
 * Contexte d'Equisense
 
 Développe des objets connectés et services pour les cavaliers.
+.image img/mobile.png _ 400
 
 Utilisation de données accélérométriques pour analyser et faire un retour sur les séances (nombre de sauts, temps à chaque allure,..)
 
-*Role*: traitement de signal, analyse de données et modélisation, développement backend
+* Tech team
 
 Culture technique:
 
@@ -39,17 +42,22 @@ Culture technique:
 - Chacun est responsable de ses projets
 - Influence de backgrounds hardware/firmware, data et design
 
+*Mon* *rôle*: traitement de signal, analyse de données et modélisation, développement backend
+.image img/sensor.jpg _ 520
+
 * Go à taille réelle en multi-plateforme
 
 * Pourquoi Go pour notre équipe ?
 
 Utilisation d'un Backend-As-A-Service au-delà de son scope et capacités
-==> Woops, énorme dette technique, besoin de développement d'une vraie plateforme
+
+⇒ Woops, énorme dette technique, besoin de développement d'une vraie plateforme
+
 
 Après exploration de plusieurs options, choix de Go pour quelques raisons clés
 
 - Facilité de lecture par une majorité de développeurs
-- Empreinte mémoire faible
+- Déploiement simple
 - Refactoring facile, prédictible
 - Autoritaire sur les détails, flexible sur les vrais choix
 - Pensé comme un langage natif serveur (cloud-native)
@@ -147,3 +155,18 @@ Compétition Kaggle :
 Objectifs :
 - Pré-traitement des données et textes bruts des questions
 - Implémentation d'une version "sparse" de l'algorithme des K plus proches voisins
+
+* PS : Equisense recrute
+
+Son futur lead back-end
+
+- Go est un plus, pas un critère bloquant
+- Non-allergie au déploiement
+- Autonomie sur ses responsabilités
+- Serein sur les choix d'architecture
+- Fortes interactions avec mobile, hardware/firmware, data, produit/design
+
+* Wanna join?
+.background img/back.png
+
+.link http://jobs.equisense.com
