@@ -10,7 +10,7 @@ https://medium.com/@MathieuBesancon
 * for _, subj := range talk { subj.Describe() }
 
 1. Introduction & contexte
-2. Go à taille réelle en multi-plateforme
+2. Go à l'échelle en multi-plateforme
 3. Go en data science
 
 .image img/gopher_horse.png
@@ -45,7 +45,7 @@ Culture technique:
 *Mon* *rôle*: traitement de signal, analyse de données et modélisation, développement backend
 .image img/sensor.jpg _ 520
 
-* Go à taille réelle en multi-plateforme
+* Go à l'échelle en multi-plateforme
 
 * Pourquoi Go pour notre équipe ?
 
