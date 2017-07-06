@@ -113,7 +113,7 @@ Système de test intégré au tooling : propriétés prédictibles du modèle
 
 Exemple en Julia
 
-.image img/julia_example.png _ 550
+.image img/examples.png _ 950
 
 * Comportement des types numériques:
 
